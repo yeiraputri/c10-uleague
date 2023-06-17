@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Mengelola Tim</title>
+
+{% endblock meta %}
+
+{% block content %}
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        Tim
+    </h1>   
+</div>
+
+<div class="flex justify-center p-16">
+    <h4 class="text-4xl">
+        Pemain
+    </h4> 
+</div>
+
+
+<div class="overflow-x-auto">
+    <table class="table w-full">
+      <thead>
+        <tr>
+          
+          <th>Nama Pemain</th>
+          <th>No Hp</th>
+          <th>Tanggal Lahir</th>
+          <th>is Captain</th>
+          <th>Posisi</th>
+          <th>NPM</th>
+          <th>Jenjang</th>
+          <th>Action</th>
+          
+        </tr>
+      </thead>
+    
+      <tbody>
+        <!-- row 1 -->
+        <tr>
+          <th>Pemain A</th>
+          <td>089736836381</td>
+          <td>04-12-2002</td>
+          <td>True</td>
+          <td>Striker</td>
+          <td>2109281908</td>
+          <td>S1</td>
+          <td>
+            <button type="button" class="btn btn-secondary">Make Captain</button>
+            <button type="button" class="btn btn-error">Delete</button> 
+          </td>
+        </tr>
+        <!-- row 2 -->
+        <tr>
+            <th>Pemain B</th>
+            <td>088263913112</td>
+            <td>18-09-2002</td>
+            <td>False</td>
+            <td>Bek Kiri</td>
+            <td>2198321990</td>
+            <td>S1</td>
+            <td>
+                <button type="button" class="btn btn-secondary">Make Captain</button>
+                <button type="button" class="btn btn-error">Delete</button> 
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="flex justify-center p-16">
+    <h4 class="text-4xl">
+        Pelatih
+    </h4>   
+</div>
+
+  <div class="overflow-x-auto">
+    <table class="table w-full">
+      
+      <thead>
+        <tr>
+          
+          <th>Nama</th>
+          <th>No Hp</th>
+          <th>Email</th>
+          <th>Alamat</th>
+          <th>Spesialisasi</th>
+          <th>Action</th>
+          <th></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <!-- row 1 -->
+        <tr>
+          <th>Pelatih A</th>
+          <td>081234789088</td>
+          <td>pelatiha@gmail.com</td>
+          <td>Bandung</td>
+          <td>Teknik</td>
+
+          <td><button type="button" class="btn btn-error">Delete</button> </td>
+        </tr>
+        <!-- row 2 -->
+        <tr>
+            <th>Pelatih B</th>
+            <td>08456789109</td>
+            <td>pelatihbe@gmail.com</td>
+            <td>Depok</td>
+            <td>Taktik</td>
+            <td><button type="button" class="btn btn-error">Delete</button> </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="flex justify-center p-10 space-x-4">
+    <button type="button" class="btn btn-secondary"><a href="{% url 'mengelola_tim:daftar_pemain' %}">Pemain</a></button>
+</div>
+<div class="flex justify-center p-5 space-x-4">
+    <button type="button" class="btn btn-secondary"><a href="{% url 'mengelola_tim:daftar_pelatih' %}">Pelatih</a></button>
+</div>
+
+{% endblock content %}

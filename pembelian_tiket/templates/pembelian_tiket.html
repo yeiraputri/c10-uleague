@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Beli Tiket</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        Beli Tiket
+    </h1>
+</div>
+
+<div class="overflow-x-auto px-8 py-4" style="margin: 0 auto; width: fit-content; border: 1px solid white; border-radius: 10px;">
+    <form method="post">
+        {% csrf_token %}
+        <label for="jenis_tiket">Jenis Tiket:</label>
+        <select id="jenis_tiket" name="jenis_tiket" style="background-color: transparent; border: 1px solid #38404e; border-radius: 2px;">
+            <option value="VIP">VIP</option>
+            <option value="Main East">Main East</option>
+            <option value="Kategori 1">Kategori 1</option>
+            <option value="Kategori 2">Kategori 2</option>
+        </select>
+        <br><br>
+        <label for="Pembayaran">Pembayaran:</label>
+        <select id="Pembayaran" name="Pembayaran" style="background-color: transparent; border: 1px solid #38404e; border-radius: 2px;">
+            <option value="OVO">OVO</option>
+            <option value="GoPay">GoPay</option>
+            <option value="ShopeePay">ShopeePay</option>
+        </select>
+        <br><br>
+        <div class="flex justify-center">
+            <button type="submit" class="text-white font-regular py-2 px-4 rounded-md" style="background-color: #38404e;" href="{% url 'home:home' %}">PILIH</button>
+        </div>
+    </form>
+    
+    {% if messages %}
+    <div class="text-red-500 mt-4">
+            
+        <p>{{ messages }}</p>
+           
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

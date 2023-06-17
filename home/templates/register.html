@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Registrasi</title>
+{% endblock meta %}
+
+{% block content %}  
+
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        FORM REGISTRASI
+    </h1>
+</div>
+
+<div class="overflow-x-auto px-8 py-4" style="margin: 0 auto; width: fit-content; border: 1px solid white; border-radius: 10px;">
+    <a class="text-white font-regular py-2 px-4 rounded-md" style="background-color: #38404e;" href="{% url 'home:register_manajer' %}">Manajer</a>
+    <a class="text-white font-regular py-2 px-4 rounded-md" style="background-color: #38404e;" href="{% url 'home:register_penonton' %}">Penonton</a>
+    <a class="text-white font-regular py-2 px-4 rounded-md" style="background-color: #38404e;" href="{% url 'home:register_panitia' %}">Panitia</a>
+
+</div>
+
+<br>
+<!-- 
+<div class="flex justify-center">
+    <form action="{% url 'pembelian_tiket:list_waktu_stadium_tiket' %}" method="POST">
+        {% csrf_token %}
+    </form>
+    
+</div> -->
+
+<br>
+
+{% endblock content %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List Pertandingan</title>
+<style>
+  td, th{
+    text-align: center;
+  }
+</style>
+{% endblock meta %}
+
+{% block content %}
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        List Pertandingan
+    </h1>
+</div>
+<!-- <div class="flex justify-center">
+    <div class="text-sm breadcrumbs">
+        <ul>
+          <li><a>Home</a></li> 
+          <li><a>Documents</a></li> 
+          <li>Add Document</li>
+        </ul>
+      </div>
+</div> -->
+<div class="overflow-x-auto px-24 py-4 pb-8">
+  <div class="shadow-xl">
+    <div style="overflow-x: auto;">
+      <table class="table table-zebra w-full rounded-md" >
+        <!-- head -->
+        <thead>
+          <tr>
+            <th class="bg-base-300" >Tim Bertanding</th>
+            <th class="bg-base-300">Stadium</th>
+            <th class="bg-base-300">Tanggal dan Waktu</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          {% for data in info_pertandingan %}
+         
+          <tr>
+            <td> {{data.0}}</td>
+            <td>{{data.1}}</td>
+            <td>{{data.2}} - {{data.3}}</td>
+          </tr>
+          
+          {% endfor %}
+        </tbody>
+        <thead>
+          <tr>
+            <th class="bg-base-300" colspan="3"></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    
+  </div>
+  </div>
+{% endblock content %}
+

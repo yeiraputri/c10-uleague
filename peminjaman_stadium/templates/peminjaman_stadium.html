@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List Pemesanan</title>
+<style>
+  td, th{
+    text-align: center;
+  }
+</style>
+{% endblock meta %}
+
+{% block content %}
+
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        List Pemesanan
+
+    </h1>
+</div>
+
+<div class="overflow-x-auto px-24 py-4 pb-8">
+    <div class="shadow-xl">
+      <div style="overflow-x: auto;">
+        <table class="table table-zebra w-full rounded-md" >
+          <!-- head -->
+          <thead>
+            <tr>
+              <th class="bg-base-300">Stadium</th>
+              <th class="bg-base-300" >Waktu</th>
+              <th class="bg-base-300" >Action</th>
+            </tr>
+          </thead>
+    
+          <tbody>
+            {% if list_peminjaman|length != 0 %}
+                {% for data in list_peminjaman %}
+            
+                <tr>
+                <td>{{data.0}}</td>
+                <td>{{data.1}}</td>
+                <td><button class="btn btn-primary" value="{{data.0}}|{{data.1}}" id="btn-update" onclick="update(data='{{data.0}}|{{data.1}}')">Update</button></td>
+                </tr>
+                
+                {% endfor %}
+            {% else %}
+                <tr>
+                <td colspan="4" class="text-center">Anda belum pernah meminjam stadium</td>
+                </tr>
+            {% endif %}
+
+          </tbody>
+          <thead>
+            <tr>
+              <th class="bg-base-300" colspan="4"></th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      
+    </div>
+
+    {% if messages %}
+   <ul class="msg py-4">
+     {% for message in messages %}
+        {% if message.tags == 'success' %}
+        <div class="alert alert-success shadow-lg">
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>{{message}}</span>
+            </div>
+            <div class="flex-none">
+              <button class="btn btn-sm btn-circle" id="cancel">✕</button>
+            </div>
+        </div>
+        {% elif message.tags == 'error' %}
+        <div class="alert alert-error shadow-lg">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>{{message}}</span>
+                </div>
+                <div class="flex-none">
+                  <button class="btn btn-sm btn-circle" id="cancel">✕</button>
+                </div>
+            </div>
+        {% endif %}
+      {% endfor %}
+    </ul>
+{% endif %}
+
+    <div class="flex justify-center p-16 space-x-4">
+        <a href="{% url 'peminjaman_stadium:pilih_stadium' %}"><button class="btn btn-neutral">Pesan</button></a>
+    </div> 
+    </div>
+
+<script>
+  $("#cancel").click(function(){
+    const alert = document.querySelector('.alert');
+    alert.classList.add('hidden');
+  });
+
+  function update(data){
+    $.ajax({
+        type: "POST",
+        url: "{% url 'peminjaman_stadium:peminjaman_stadium' %}",
+        data: {'data':data},
+        success: function(){
+            window.location.href = "{% url 'peminjaman_stadium:update_peminjaman' %}";
+        }
+    });
+  }
+
+  $(document).ready(function(){
+        // $(".btn btn-primary").click(function(){
+        //     const data = document.getElementById('btn-update');
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "{% url 'peminjaman_stadium:peminjaman_stadium' %}",
+        //         data: {'data':data.value},
+        //         success: function(){
+                  
+        //             window.location.href = "{% url 'peminjaman_stadium:update_peminjaman' %}";
+        //         }
+        //     });
+        // });
+      });
+</script>
+
+{% endblock content %}
+

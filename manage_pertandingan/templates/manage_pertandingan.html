@@ -1,0 +1,278 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Manage Pertandingan</title>
+<style>
+  td, th, tr {
+    text-align: center;
+  }
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        Manage Pertandingan
+    </h1>
+</div>
+<!-- <div class="flex justify-center">
+    <div class="text-sm breadcrumbs">
+        <ul>
+          <li><a>Home</a></li> 
+          <li><a>Documents</a></li> 
+          <li>Add Document</li>
+        </ul>
+      </div>
+</div> -->
+<div class="flex justify-center">
+  <div class="btn-group">
+    <a href='#slide1' class="btn btn-active">Stage 1</a>
+    <a href='#slide2' class="btn">Stage 2</a>
+    <a href='#slide3' class="btn">Final Stage</a>
+  </div>
+</div>
+<div class="overflow-x-auto px-24 py-4 pb-8">
+  <div class="carousel w-full shadow-xl rounded-lg">
+    <div id="slide1" class="carousel-item relative w-full">
+      <table class="table table-zebra w-full rounded-lg">
+        <!-- head -->
+        <thead>
+          <tr>
+            <!-- <th class="bg-base-300">Group</th> -->
+            <th class="bg-base-300">Tim</th>
+            <th class="bg-base-300">Waktu</th>
+            <th class="bg-base-300">Pemenang</th>
+            <th class="bg-base-300">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- row 1
+          <tr>
+            <th rowspan="2">A</th>
+            <td>A VS B</td>
+            <td>28 April 2023, 13:00</td>
+            <td>A</td>
+            <td><label for="modal1" class="btn btn-primary btn-sm">Lihat Peristiwa Tim 1</label>
+            </br>
+            </br>
+              <button class="btn btn-primary btn-sm">Lihat Peristiwa Tim 2</button>
+            </td>
+          </tr>
+          row 2
+          <tr>
+            <td>C VS D</td>
+            <td>29 April 2023, 13:00</td>
+            <td>D</td>
+            <td><button class="btn btn-primary btn-sm">Lihat Peristiwa Tim 1</button>
+            </br>
+            </br>
+              <button class="btn btn-primary btn-sm">Lihat Peristiwa Tim 2</button>
+            </td>
+          </tr>
+          row 3
+          <tr>
+            <th rowspan="2">B</th>
+            <td>E VS F</td>
+            <td>[Waktu Dimulai - 5 Menit]</td>
+            <td>-</td>
+            <td><button class="btn btn-primary btn-sm">Mulai</button>
+            </td>
+          </tr>
+          row 4
+          <tr>
+            <td>G VS H</td>
+            <td>10 May 2023, 12:00</td>
+            <td>-</td>
+            <td><button class="btn btn-primary btn-sm" disabled="disabled">Belum dimulai</button>
+            </td>
+          </tr> -->
+          
+        </tbody>
+
+        {% for data in info_pertandingan %}
+        <tr>
+          <td>{{data.1}}</td>
+          <td>{{data.2}}</td>
+          <td>{{data.3}}</td>
+          <td><s href="{% url 'manage_pertandingan:manage_pertandingan' %}"><button type="button" class="btn btn-primary">Lihat Peristiwa Tim 1</button></a></td>
+
+        </tr>
+        <thead>
+          <td colspan="5" class="bg-base-300"><button class="btn btn-primary btn-wide btn-sm">Finish</button></th>
+      </thead>
+      </table>
+    </div>
+
+    <div id="slide2" class="carousel-item relative w-full">
+      <table class="table table-zebra w-full rounded-lg">
+        <!-- head -->
+        <thead>
+          <tr>
+           <!--  <th class="bg-base-300">Group</th> -->
+            <th class="bg-base-300">Tim</th>
+            <th class="bg-base-300">Waktu</th>
+            <th class="bg-base-300">Pemenang</th>
+            <th class="bg-base-300">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- row 1
+          <tr>
+            <th rowspan="2">A</th>
+            <td>A VS B</td>
+            <td>28 April 2023, 13:00</td>
+            <td>A</td>
+            <td>
+              <button class="btn btn-primary btn-sm">Update</button>
+            </td>
+          </tr>
+          row 2
+          <tr>
+            <td>C VS D</td>
+            <td>29 April 2023, 13:00</td>
+            <td>D</td>
+            <td>
+              <button class="btn btn-primary btn-sm">Update</button>
+            </td>
+          </tr>
+          row 3
+          <tr>
+            <th rowspan="2">B</th>
+            <td>E VS F</td>
+            <td>-</td>
+            <td>-</td>
+            <td><button class="btn btn-primary btn-sm">Update</button>
+            </td>
+          </tr>
+          row 4
+          <tr>
+            <td>G VS H</td>
+            <td>10 May 2023, 12:00</td>
+            <td>-</td>
+            <td><button class="btn btn-primary btn-sm">Update</button>
+            </td>
+          </tr> -->
+          {% for data in info_pertandingan %}
+          <tr>
+            <td>{{data.1}}</td>
+            <td>{{data.2}}</td>
+            <td>{{data.3}}</td>
+            <td><s href="{% url 'manage_pertandingan:manage_pertandingan' %}"><button type="button" class="btn btn-primary">Update</button></a></td>
+          </tr>
+        </tbody>
+        <thead>
+            <td colspan="5" class="bg-base-300"><button class="btn btn-primary btn-wide btn-sm">Save</button></th>
+        </thead>
+      </table>
+    </div>
+    
+    <div id="slide3" class="carousel-item relative w-full">
+      <table class="table table-zebra w-full rounded-lg">
+        <!-- head -->
+        <thead>
+          <tr>
+            <!-- <th class="bg-base-300">Group</th> -->
+            <th class="bg-base-300">Tim</th>
+            <th class="bg-base-300">Waktu</th>
+            <th class="bg-base-300">Pemenang</th>
+            <th class="bg-base-300">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- row 1
+          <tr>
+            <th rowspan="2">A</th>
+            <td>A VS B</td>
+            <td>28 April 2023, 13:00</td>
+            <td>A</td>
+            <td><button class="btn btn-primary btn-sm">Lihat Peristiwa Tim 1</button>
+            </br>
+            </br>
+              <button class="btn btn-primary btn-sm">Lihat Peristiwa Tim 2</button>
+            </td>
+          </tr>
+          row 2
+          <tr>
+            <td>C VS D</td>
+            <td>29 April 2023, 13:00</td>
+            <td>D</td>
+            <td><button class="btn btn-primary btn-sm">Lihat Peristiwa Tim 1</button>
+            </br>
+            </br>
+              <button class="btn btn-primary btn-sm">Lihat Peristiwa Tim 2</button>
+            </td>
+          </tr>
+          row 3
+          <tr>
+            <th rowspan="2">B</th>
+            <td>E VS F</td>
+            <td>[Waktu Dimulai - 5 Menit]</td>
+            <td>-</td>
+            <td><button class="btn btn-primary btn-sm">Mulai</button>
+            </td>
+          </tr>
+          row 4
+          <tr>
+            <td>G VS H</td>
+            <td>10 May 2023, 12:00</td>
+            <td>-</td>
+            <td><button class="btn btn-primary btn-sm" disabled="disabled">Belum dimulai</button>
+            </td>
+          </tr> -->
+          {% for data in info_pertandingan %}
+        <tr>
+          <td>{{data.1}}</td>
+          <td>{{data.2}}</td>
+          <td>{{data.3}}</td>
+          <td><s href="{% url 'manage_pertandingan:manage_pertandingan' %}"><button type="button" class="btn btn-primary">Lihat Peristiwa Tim 1</button></a></td>
+        </tr>
+        </tbody>
+        <thead>
+          <td colspan="5" class="bg-base-300"><button class="btn btn-primary btn-wide btn-sm">Finish</button></th>
+      </thead>
+      </table>
+    </div>
+  </div>
+  </div>
+
+<input type="checkbox" id="modal1" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg pb-4">Peristiwa Tim A</h3>
+    <table class="table table-zebra w-full rounded-md">
+      <thead>
+        <tr>
+          <th class="bg-base-300">Nama Pemain</th>
+          <th class="bg-base-300">Peristiwa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr>
+          <td>Nur</td>
+          <td>Goal</td>
+        </tr>
+        <tr>
+          <td>Fajar</td>
+          <td>Goal</td>
+        </tr> -->
+        {% for data in info_pertandingan %}
+        <tr>
+          <td>{{data.1}}</td>
+          <td>{{data.2}}</td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th colspan="2" class="bg-base-300"></th>
+        </tr>
+      </thead>
+    </table>
+    <div class="modal-action">
+      <label for="modal1" class="btn">Yay!</label>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+

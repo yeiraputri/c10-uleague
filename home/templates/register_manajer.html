@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Registrasi Manajer</title>
+{% endblock meta %}
+
+{% block content %}
+
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        FORM REGISTRASI
+    </h1>
+</div>
+
+<div class="overflow-x-auto px-8 py-4"
+    style="margin: 0 auto; width: fit-content; border: 1px solid white; border-radius: 10px;">
+    <form method="post" action="{% url 'home:register_manajer' %}">
+        {% csrf_token %}
+        <div class="gap-5 text-left grid grid-cols-3 grid-rows-2 items-center">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="Isi email" required
+                class="col-span-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" placeholder="Isi username" required
+                class="col-span-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Isi password" required
+                class="col-span-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+
+
+            <label for="nama_depan">Nama Depan:</label>
+            <input type="text" name="nama_depan" id="nama_depan" placeholder="Isi nama depan" required
+                class="col-span-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+            <label for="nama_belakang">Nama Belakang:</label>
+            <input type="text" name="nama_belakang" id="nama_belakang" placeholder="Isi nama belakang" required
+                class="col-span-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+            <label for="telp">Nomor HP:</label>
+            <input type="tel" name="telp" id="telp" placeholder="Isi nomor HP" required
+                class="col-span-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+
+            <label for="alamat">Alamat:</label>
+            <input type="text" name="alamat" id="alamat" placeholder="Isi alamat" required
+                class="col-span-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+
+
+            <label for="role">Status:</label>
+            <div class="col-span-2">
+                <label class="inline-flex items-center">
+                    <input type="radio" name="role" value="mahasiswa" required>
+                    <span class="ml-2">Mahasiswa</span>
+                </label>
+                <label class="inline-flex items-center">
+                    <input type="radio" name="role" value="dosen" required>
+                    <span class="ml-2">Dosen</span>
+                </label>
+                <label class="inline-flex items-center">
+                    <input type="radio" name="role" value="tendik" required>
+                    <span class="ml-2">Tendik</span>
+                </label>
+                <label class="inline-flex items-center">
+                    <input type="radio" name="role" value="alumni" required>
+                    <span class="ml-2">Alumni</span>
+                </label>
+                <label class="inline-flex items-center">
+                    <input type="radio" name="role" value="umum" required>
+                    <span class="ml-2">Umum</span>
+                </label>
+            </div>
+
+            <br>
+            {% if messages %}
+            <div class="text-red-500 mt-4">
+
+                <p>{{ messages }}</p>
+
+            </div>
+            {% endif %}
+            <div class="col-span-3 flex justify-center">
+                <input class="text-white font-regular py-2 px-4 rounded-md text-center" type="submit" value="DAFTAR"
+                    style="background-color: #38404e;" />
+            </div>
+
+            <br>
+
+        </div>
+        <p class="text-center">
+            Sudah mempunyai akun?
+            <a href="{% url 'home:login' %}" class="font-bold text-green underline hover:no-underline">Login</a>
+        </p>
+
+
+    </form>
+
+
+</div>
+
+<br>
+<!-- 
+<div class="flex justify-center">
+    <form action="{% url 'pembelian_tiket:list_waktu_stadium_tiket' %}" method="POST">
+        {% csrf_token %}
+    </form>
+    
+</div> -->
+
+<br>
+
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Login and Register</title>
+{% endblock meta %}
+
+{% block content %}
+
+<div class="hero min-h-screen bg-base-200">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <div>
+        <h1 class="text-5xl font-bold">BABADU - C11</h1>
+        <button class="btn btn-primary" type="button"><a href="{% url 'home:login' %}">LOGIN</a></button>
+        <button class="btn btn-primary" type="button"><a href="{% url 'home:register' %}">REGISTER</a></button>
+      </div>
+    </div>
+</div>
+{% endblock content %}

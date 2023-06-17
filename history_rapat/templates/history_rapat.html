@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>History Rapat</title>
+<style>
+  td, th{
+    text-align: center;
+  }
+</style>
+{% endblock meta %}
+
+{% block content %}
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        History Rapat
+    </h1>
+</div>
+
+<div class="overflow-x-auto px-24 py-4 pb-8">
+  <div class="shadow-xl">
+    <table class="table table-zebra w-full rounded-lg">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th class="bg-base-300">Rapat Tim</th>
+          <th class="bg-base-300">Nama Panitia</th>
+          <th class="bg-base-300">Stadium</th>
+          <th class="bg-base-300">Tanggal dan Waktu</th>
+          <th class="bg-base-300">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for data in info_rapat %}
+        <!-- row 1 -->
+        <tr>
+          <td>{{data.0}}</td>
+          <td>{{data.1}}</td>
+          <td>{{data.2}}</td>
+          <td>{{data.3}}-{{data.4}}</td>
+          <td>
+            <a href="{% url 'history_rapat:isi_rapat' data.5 %}" class="btn btn-primary btn-sm">Lihat Laporan Rapat</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Peminjaman Stadium</title>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        Peminjaman Stadium
+    </h1>
+</div>
+
+
+
+<div class="overflow-x-auto px-24 py-4 pb-8">
+    <div class="flex justify-center max-w-full">
+    <form method="POST">
+        <div class="form-control w-full max-w-xs grow">
+            <label class="label">
+              <span class="label-text">Stadium</span>
+            </label>
+            <select id="select-stadium" class="select select-bordered">
+              <option disabled selected>Pick one</option>
+              {% for data in list_stadium %}
+                <option value="{{data.0}}">{{data.1}}</option>
+            {% endfor %}
+            </select>
+          </div>
+            <label class="label">
+              <span class="label-text">Tanggal</span>
+            </label>
+            <input type="date" placeholder="Type here" id="date" class="input input-bordered w-full max-w-xs" />
+    </form>
+</div>
+    <div class="flex justify-center p-16 space-x-4">
+        <button id="btn-pilih" class="btn btn-primary">SUBMIT</button>
+    </div>
+</div>
+
+<script>
+    // ambil data dari select dan pindahkan ke url saat button di klik
+    // ganti page saat button di klik
+    $(document).ready(function(){
+        $("#btn-pilih").click(function(){
+            const stadium = document.getElementById('select-stadium');
+            const date = document.getElementById('date');
+            if (stadium.value == "Pick one" || date.value == "") {
+                alert("Please fill the form");
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'peminjaman_stadium:pilih_stadium' %}",
+                    data: {'id_stadium':stadium.value, 'date':date.value},
+                    success: function(){
+                        window.location.href = "{% url 'peminjaman_stadium:peminjaman_stadium' %}";
+                    }
+                });
+            }
+        });
+
+        
+    });
+
+
+
+</script>
+
+
+{% endblock content %}
+

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Login</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="hero min-h-screen bg-base-200">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <div class="text-center lg:text-left">
+        <h1 class="text-5xl font-bold">Login now!</h1>
+        <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+        {% if message %} 
+        <div class="alert alert-error shadow-lg">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>{{message}}</span>
+                </div>
+                <div class="flex-none">
+                  <button class="btn btn-sm btn-circle" id="cancel">✕</button>
+                </div>
+            </div>
+        {% endif %}
+      </div>
+      <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div class="card-body">
+        <form method="post" action="{% url 'home:login' %}">
+            {% csrf_token %}
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Username</span>
+            </label>
+            <input type="text" name="username" id="username" placeholder="Isi username" required class="input input-bordered" />
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Password</span>
+            </label>
+            <input type="password" name="password" id="password" placeholder="Isi password" required class="input input-bordered" />
+        </div>
+        <div class="form-control mt-6">
+            <button class="btn btn-primary">Login</button>
+            <label class="label">
+                Belum Mempunyai Akun?
+              <a href="{% url 'home:register' %}" class="label-text font-bold text-l link link-hover">Register</a>
+            </label>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cancel = document.getElementById('cancel');
+  cancel.addEventListener('click', () => {
+    const alert = document.querySelector('.alert');
+    alert.classList.add('hidden');
+  });
+  </script>
+{% endblock content %}

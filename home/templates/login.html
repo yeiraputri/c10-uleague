@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Login</title>
+{% endblock meta %}
+
+{% block content %}
+
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        FORM LOGIN
+    </h1>
+</div>
+
+<div class="overflow-x-auto px-8 py-4"
+    style="margin: 0 auto; width: fit-content; border: 1px solid white; border-radius: 10px;">
+    <form method="post" action="{% url 'home:login' %}">
+        {% csrf_token %}
+        <div class="gap-5 text-left grid grid-cols-3 grid-rows-2 items-center">
+           
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" placeholder="Isi username" required
+                class="col-span-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Isi password" required
+                class="col-span-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+
+
+            <div class="col-span-3 flex justify-center">
+                <input class="text-white font-regular py-2 px-4 rounded-md text-center" type="submit" value="LOGIN"
+                    style="background-color: #38404e;" />
+            </div>
+
+
+        </div>
+        {% if message %} 
+        <div class="mt-2 text-{{ message.tags }} text-sm text-center">{{ message }}</div>
+        {% endif %}
+
+        <br>
+
+        <p class="text-center">
+            Belum mempunyai akun?
+            <a href="{% url 'home:register' %}" class="font-bold text-green underline hover:no-underline">Register</a>
+        </p>
+        
+    </form>
+
+</div>
+
+<br>
+<!-- 
+<div class="flex justify-center">
+    <form action="{% url 'pembelian_tiket:list_waktu_stadium_tiket' %}" method="POST">
+        {% csrf_token %}
+    </form>
+    
+</div> -->
+
+<br>
+
+{% endblock content %}

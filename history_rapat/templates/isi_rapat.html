@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>History Rapat</title>
+<style>
+  td, th{
+    text-align: center;
+  }
+</style>
+
+{% endblock meta %}
+
+<!-- Rapat Tim Nama
+Pantitia
+Stadium Tanggal dan Waktu Action -->
+
+{% block content %}
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        Isi Rapat
+    </h1>
+</div>
+
+<div class="overflow-x-auto px-24 py-4 pb-8">
+    <div class="shadow-xl">
+      <table class="table table-zebra w-full rounded-lg">
+        <!-- head -->
+        <tbody>
+          <tr>
+            <td class="bg-base-300">{{isi_rapat}}</td>
+            
+          </tr>
+        </tbody>
+        
+      </table>
+    </div>
+  </div>
+
+<br>
+{% endblock content %}

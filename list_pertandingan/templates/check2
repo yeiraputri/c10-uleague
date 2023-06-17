@@ -1,0 +1,1 @@
+select distinct s.nama from stadium s, pertandingan p where s.id_stadium = '0fee0a3e-ecce-11ed-a05b-0242ac120003' and p.id_pertandingan = '8580fd94-9d1b-4625-9b2e-93a98087b49f' and p.stadium = '0fee0a3e-ecce-11ed-a05b-0242ac120003'

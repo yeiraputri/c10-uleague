@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Mengelola Tim</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        Form Registrasi
+    </h1>
+</div>
+
+<div class="overflow-x-auto px-8 py-4" style="margin: 0 auto; width: fit-content; border: 1px solid white; border-radius: 10px;">
+    <form action="{% url 'mengelola_tim:form_daftar_tim' %}" method="POST">
+      {% csrf_token %}
+      <label for="nama_tim">Nama Tim:</label>
+        <input type="text" name="nama_tim" id="nama_tim" placeholder="Isi nama tim" required
+            class="col-span-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+
+      <label for="universitas">Nama Universitas:</label>
+        <input type="text" name="universitas" id="universitas" placeholder="Isi nama universitas" required
+            class="col-span-2 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" />
+        <div class="flex justify-center p-16 space-x-4">
+          <button type="submit" class="btn btn-secondary"><a href="{% url 'mengelola_tim:list_tim' %}">Daftar</a></button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

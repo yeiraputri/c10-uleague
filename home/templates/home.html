@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>U-League</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="hero min-h-screen bg-base-200">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <img src="/static/hero.png" class="max-w-sm rounded-lg shadow-2xl" width="300" height="auto"/>
+      <div>
+        <h1 class="text-5xl font-bold">U-League
+            Indonesian Universities Football
+            Championship</h1>
+        <p class="py-6">Kementerian Pemuda dan Olahraga RI bekerja sama dengan Kementerian Pendidikan, Kebudayaan,
+          Riset, dan Teknologi mengadakan U-League yaitu liga sepak bola antar universitas. U-League berlangsung
+          selama 3 bulan dimana semua tim bertanding di babak penyisihan sampai didapatkan 32 tim yang
+          melaju ke babak kualifikasi. 32 tim dibagi menjadi 8 grup. Dua pemenang di setiap grup maju ke 16
+          besar dan seterusnya sampai didapatkan dua tim yang bertanding di babak final.</p>
+        <button class="btn btn-primary">Get Started</button>
+      </div>
+    </div>
+</div>
+{% endblock content %}

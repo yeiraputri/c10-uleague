@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List Pertandingan</title>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        List Pertandingan
+
+    </h1>
+</div>
+
+<div class="overflow-x-auto px-8 py-4">
+    <table class="table table-zebra w-full border-2 border-primary-content rounded-md">
+        <thead>
+            <tr>
+                <th >Tim 1</th>
+                <th >Tim2</th>
+                <th> </th>
+              </tr>
+        </thead>
+        <tbody>
+            <tr>
+            
+                <td>
+                    {{tim_bertanding.0}}
+                </td>
+                <td>
+                    {{tim_bertanding.1}}
+                </td>
+                <td class="text-center">
+                    <a class="text-white font-regular py-2 px-4 rounded-md" style="background-color: #38404e;" href="{% url 'pembelian_tiket:pembelian_tiket' id_pertandingan=id_pertandingan %}">PILIH</a>
+                </td>
+            </tr>   
+        </tbody>
+        
+    </table>
+</div>
+
+
+
+{% endblock content %}
+

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Pengguna</title>
+
+{% endblock meta %}
+
+{% block content %}
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        Form Registrasi
+    </h1>
+</div>
+
+<div class="flex justify-center p-16">
+  <div class="form-control w-full max-w-xs">
+      <label class="label">
+        <span class="label-text">Username :</span>
+      </label>
+      <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+      <label class="label">
+        <span class="label-text">Password :</span>
+      </label>
+      <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+      <label class="label">
+        <span class="label-text">Nama Depan :</span>
+      </label>
+      <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+      <label class="label">
+        <span class="label-text">Nama Belakang :</span>
+      </label>
+      <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+      <label class="label">
+        <span class="label-text">Nomor HP :</span>
+      </label>
+      <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+      <label class="label">
+        <span class="label-text">Email :</span>
+      </label>
+      <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+      <label class="label">
+        <span class="label-text">Alamat :</span>
+      </label>
+      <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+    
+      
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Status :</span>
+        </label>
+        <label class="label cursor-pointer">
+          <span class="label-text">Mahasiswa</span> 
+          <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked />
+        </label>
+        <label class="label cursor-pointer">
+          <span class="label-text">Dosen</span> 
+          <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked />
+        </label>
+        <label class="label cursor-pointer">
+          <span class="label-text">Tendik</span> 
+          <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked />
+        </label>
+        <label class="label cursor-pointer">
+          <span class="label-text">Alumni</span> 
+          <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked />
+        </label>
+        <label class="label cursor-pointer">
+          <span class="label-text">Umum</span> 
+          <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked />
+        </label>
+      </div>
+
+      <label class="label">
+        <span class="label-text">Jabatan :</span>
+      </label>
+      <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+      <div class="pt-4">
+        <button type="button" class="btn btn-secondary">Daftar</button>
+    </div>
+  </div>
+  
+    
+    
+</div>
+
+{% endblock content %}

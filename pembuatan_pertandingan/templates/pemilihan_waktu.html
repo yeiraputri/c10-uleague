@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Manage Pertandingan</title>
+<style>
+  td, th, tr {
+    text-align: center;
+  }
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+
+<div class="flex justify-center p-16">
+    <h1 class="text-4xl font-bold">
+        Pemilihan Waktu
+    </h1>
+</div>
+<div class="overflow-x-auto px-24 py-4 pb-8">
+      <table class="table table-zebra w-full rounded-lg">
+        <!-- head -->
+        <thead>
+            <tr>
+                <th colspan="4" class="bg-base-300">List Waktu Stadium Internasional Jakarta</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th class="bg-base-300">List Waktu</th>
+                <th class="bg-base-300">Action</th>
+              </tr>
+          <!-- row 1 -->
+          <tr>
+            <td>11.00 - 13.00</td>
+            <td>update</td>
+          </tr>
+          <!-- row 2 -->
+          <tr>
+            <td>07.00 - 09.00</td>
+            <td>
+                <button class="btn btn-primary btn_sm"><a href="{% url 'pembuatan_pertandingan:buat_pertandingan' %}">Next</a></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+{% endblock content %}
+

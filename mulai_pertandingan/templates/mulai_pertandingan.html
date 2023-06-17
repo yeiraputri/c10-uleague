@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<head>
+	<title>Peristiwa Pertandingan</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+		td {
+			text-align: center; /* center the contents of the cell */
+			vertical-align: middle; /* center the cell itself vertically */
+		}
+        th {
+			text-align: center; /* center the contents of the cell */
+			vertical-align: middle; /* center the cell itself vertically */
+		}
+
+	</style>
+</head>
+{% endblock meta %}
+
+{% block content %}
+<body>
+	<div class="container mt-5">
+        <h1 class="mb-3">Mulai Pertandingan</h1>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Tim 1</th>
+					<th>Tim 2</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- <tr>
+					<td>A</td>
+					<td>B</td>
+                    <td><div class="container">
+                        <button class="btn btn-active btn-link vertical-align">Masukkan Peristiwa Tim 1</button>
+                        <br>
+                         <button class="btn btn-active btn-link vertical-align">Masukkan Peristiwa Tim 2</button>
+                      </div></td>
+				</tr> -->
+				{% for data in info_tim %}
+        		<tr>
+          			<td>{{data.1}}</td>
+          			<td>{{data.2}}</td>
+          		<td><s href="{% url 'mulai_pertandingan:mulai_pertandingan' %}"><button type="button" class="btn btn-primary">Masukkan Peristiwa Tim 1</button></a></td>
+        		</tr>
+                <tr>
+                    <td colspan="3">
+						<button class="btn btn-primary" type="submit">SUBMIT</button>
+                    </td></tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+{% endblock content %}

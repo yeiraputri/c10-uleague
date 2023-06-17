@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List Waktu Stadium</title>
+<style>
+    td, th{
+      text-align: center;
+    }
+  </style>
+{% endblock meta %}
+
+{% block content %}
+
+<div class="flex flex-col p-16">
+    <h1 class="text-4xl font-bold text-center pb-4">
+        List Waktu Stadium "{{nama_stadium}}"
+    </h1>
+    <h4 class="text-xl font-regular text-center">
+       {{date}}</h4>
+    
+</div>
+
+<div class="overflow-x-auto px-24 py-4 pb-8">
+    <div class="shadow-xl">
+      <div style="overflow-x: auto;">
+        <table class="table table-zebra w-full rounded-md" >
+          <!-- head -->
+          <thead>
+            <tr>
+              <th class="bg-base-300">Waktu</th>
+              <th class="bg-base-300" >Action</th>
+            </tr>
+          </thead>
+    
+          <tbody>
+            {% if list_waktu|length != 0 %}
+                {% for data in list_waktu %}
+            
+                <tr>
+                <td>{{data.0}}</td>
+                <td><button class="btn btn-primary btn-sm">Pesan</button></td>
+                </tr>
+                
+                {% endfor %}
+            {% else %}
+                <tr>
+                <td colspan="2" class="text-center">Tidak ada jadwal kosong pada tanggal ini</td>
+                </tr>
+            {% endif %}
+
+          </tbody>
+          <thead>
+            <tr>
+              <th class="bg-base-300" colspan="4"></th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      
+    </div>
+    </div>
+
+{% endblock content %}
+

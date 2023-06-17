@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<head>
+	<title>Pilih Peristiwa</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<style>
+    td {
+        text-align: center; /* center the contents of the cell */
+        vertical-align: middle; /* center the cell itself vertically */
+    }
+    th {
+        text-align: center; /* center the contents of the cell */
+        vertical-align: middle; /* center the cell itself vertically */
+    }
+</style>
+{% endblock meta %}
+
+{% block content %}
+<body>
+	<div class="container mt-5">
+		<h1 class="mb-3">Pilih Peristiwa Tim</h1>
+		<form>
+			<table class="table table-bordered border-dark">
+				<thead>
+                    <tr>
+						<th colspan="2">Pilih Peristiwa Tim [Nama Tim]</th>
+					</tr>
+
+					<tr>
+						<th>Nama Pemain</th>
+						<th>Peristiwa</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<select class="form-control">
+								<option>None</option>
+								<option>Pemain 1</option>
+								<option>Pemain 2</option>
+								<option>Pemain 3</option>
+								<option>Pemain 4</option>
+								<option>Pemain 5</option>
+							</select>
+						</td>
+						<td>
+							<select class="form-control">
+								<option>None</option>
+								<option>Kartu Kuning</option>
+								<option>Kartu Merah</option>
+								<option>Assist</option>
+								<option>Gol</option>
+							</select>
+						</td>
+					</tr>
+					<!-- <tr>
+						<td>
+							<select class="form-control">
+								<option>None</option>
+								<option>Pemain 1</option>
+								<option>Pemain 2</option>
+								<option>Pemain 3</option>
+								<option>Pemain 4</option>
+								<option>Pemain 5</option>
+							</select>
+						</td>
+						<td>
+							<select class="form-control">
+								<option>None</option>
+								<option>Kartu Kuning</option>
+								<option>Kartu Merah</option>
+								<option>Assist</option>
+								<option>Gol</option>
+							</select>
+						</td>
+                        <tr>
+                            <td>
+                                <select class="form-control">
+                                    <option>None</option>
+                                    <option>Pemain 1</option>
+                                    <option>Pemain 2</option>
+                                    <option>Pemain 3</option>
+                                    <option>Pemain 4</option>
+                                    <option>Pemain 5</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
+                                    <option>None</option>
+                                    <option>Kartu Kuning</option>
+                                    <option>Kartu Merah</option>
+                                    <option>Assist</option>
+                                    <option>Gol</option>
+                                </select>
+                            </td>
+                            <tr>
+                                <td>
+                                    <select class="form-control">
+                                        <option>None</option>
+                                        <option>Pemain 1</option>
+                                        <option>Pemain 2</option>
+                                        <option>Pemain 3</option>
+                                        <option>Pemain 4</option>
+                                        <option>Pemain 5</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control">
+                                        <option>None</option>
+                                        <option>Kartu Kuning</option>
+                                        <option>Kartu Merah</option>
+                                        <option>Assist</option>
+                                        <option>Gol</option>
+                                    </select>
+                                </td>
+                                <tr>
+                                    <td>
+                                        <select class="form-control">
+                                            <option>None</option>
+                                            <option>Pemain 1</option>
+                                            <option>Pemain 2</option>
+                                            <option>Pemain 3</option>
+                                            <option>Pemain 4</option>
+                                            <option>Pemain 5</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control">
+                                            <option>None</option>
+                                            <option>Kartu Kuning</option>
+                                            <option>Kartu Merah</option>
+                                            <option>Assist</option>
+                                            <option>Gol</option>
+                                        </select>
+                                    </td>
+					</tr> -->
+					<tr>
+                        <td colspan="2">
+                            <button class="btn btn-primary" type="submit">SELESAI</button>
+                        </td></tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+{% endblock content %}
