@@ -2,7 +2,7 @@
     "builds": [
       {
         "src": "c11_uleague/wsgi.py",
-        "use": "@vercel/python"
+        "use": "@ardnt/vercel-python-wsgi"
       }
     ],
     "routes": [
