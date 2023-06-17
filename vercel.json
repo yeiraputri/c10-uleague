@@ -1,14 +1,14 @@
 {
     "builds": [
       {
-        "src": "c11-uleague/wsgi.py",
+        "src": "c11_uleague/wsgi.py",
         "use": "@vercel/python"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "c11-uleague/wsgi.py"
+        "dest": "c11_uleague/wsgi.py"
       }
     ]
 }
